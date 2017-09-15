@@ -2,6 +2,15 @@
 {% block container %}
 <h1>Välkommen</h1>
 <p>Detta är en implementation av mine sweeper.</p>
-<p>{{ text }}</p>
+
+<table>
+{% for row in map %}
+  <tr>
+  {% for tile in row %}
+    <td>{{ tile }}</td>
+  {% endfor%}
+  </tr>
+{% endfor %}
+</table>
 
 {% endblock %}
