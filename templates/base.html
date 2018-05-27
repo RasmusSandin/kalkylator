@@ -1,19 +1,84 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
-  {%- block head %}
   <meta charset="utf-8">
-  <title>{% block title %}Morseöversättaren{% endblock %}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/skeleton.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-  {% endblock -%}
+  <style media="screen">
+    .kalkylator {
+      margin-top: 200px;
+      margin-left: 850px;
+      width: 70px;
+    }
+
+    .form {
+      background-color: #000000;
+      width: 233px;
+      height: 330px;
+      padding-top: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+      border-radius: 5px;
+    }
+
+    #clearbtn {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      background-color: #000000;
+      color: white;
+      margin-right: 30px;
+      width: 229px;
+      height: 40px;
+      text-align: right;
+      font-size: 20px;
+    }
+
+    .knapp {
+      position: relative;
+      text-align: center;
+      left: -2px;
+      margin-left: 5px;
+      margin-top: 5px;
+      width: 50px;
+      height: 50px;
+    }
+  </style>
+  <title>Kalkylator</title>
+  <script type="text/javascript">
+    function displynum(n1){
+      calcform.txt1.value=calcform.txt1.value+n1;
+    }
+
+    function squareroot(){
+      document.getElementById("sqrt").innerHTML = Math.sqrt(displynum(n1));
+    }
+  </script>
 </head>
 <body>
-<div class="container">
-{% block container %}{% endblock %}
-</div>
+  <div class="kalkylator">
+    <form name=calcform>
+      <div class="form">
+        <input type=text name=txt1 id="clearbtn" value=""><br>
+        <input type=reset name=btnc class="knapp" value="C">
+        <input type=button name=btn class="knapp" id="sqrt" value= &#8730; onclick="squareroot()">
+        <input type=button name=btn^ class="knapp" value= &#8743 onclick="displynum(btn^.value)"><br>
+        <input type=button name=btn9 class="knapp" value=9 onclick="displynum(btn9.value)">
+        <input type=button name=btn8 class="knapp" value=8 onclick="displynum(btn8.value)">
+        <input type=button name=btn7 class="knapp" value=7 onclick="displynum(btn7.value)">
+        <input type=button name=divbtn class="knapp" value=/ onclick="displynum(divbtn.value)"><br>
+        <input type=button name=btn6 class="knapp" value=6 onclick="displynum(btn6.value)">
+        <input type=button name=btn5 class="knapp" value=5 onclick="displynum(btn5.value)">
+        <input type=button name=btn4 class="knapp" value=4 onclick="displynum(btn4.value)">
+        <input type=button name=btnmul class="knapp" value=* onclick="displynum(btnmul.value)"> <br>
+        <input type=button name=btn3 class="knapp" value=3 onclick="displynum(btn3.value)">
+        <input type=button name=btn2 class="knapp" value=2 onclick="displynum(btn2.value)">
+        <input type=button name=btn1 class="knapp" value=1 onclick="displynum(btn1.value)">
+        <input type=button name=subbtn class="knapp" value=- onclick="displynum(subbtn.value)"><br>
+        <input type=button name=btn0 class="knapp" value=0 onclick="displynum(btn0.value)">
+        <input type=button name=potbtn class="knapp" value=. onclick="displynum(potbtn.value)">
+        <input type=button name=eqlbtn class="knapp" value== onclick="txt1.value=eval(txt1.value)">
+        <input type=button name=addbtn class="knapp" value=+ onclick="displynum(addbtn.value)"><br>
+      </div>
+    </form>
+  </div>
+
 </body>
 </html>
